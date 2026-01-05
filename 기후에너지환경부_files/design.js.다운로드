@@ -1,0 +1,619 @@
+/*
+ ★ Coding By DumiCode
+ ★ homepage: http://www.dumicode.com
+*/
+
+
+$(function(){
+
+	//운영사이트
+	$(".oper_site > a").click(function(){
+		$(this).parent(".oper_site").toggleClass("open");
+		
+		if($(".oper_site > a").attr("title") == "운영누리집 펼치기"){
+			$(".oper_site > a").attr({"title":"운영누리집 접기"});
+		} else if($(".oper_site > a").attr("title") == "운영누리집 접기"){
+			$(".oper_site > a").attr({"title":"운영누리집 펼치기"});
+		}
+		
+		return false;
+	});
+	$(document).click(function(e){
+		if($(e.target).parents(".toggle_cont").length < 1)
+		{
+			$(".oper_site").removeClass("open");
+		}
+	});
+	
+	/* 공기질데이터 탭 */
+	$(".sd_tab li a").each(function(index){
+		$(this).click(function(){
+			$(".sd_tab li").removeClass("active");
+			$(this).parent().addClass("active");
+			var ac = $(".sd_tab li a").index(this);
+			//
+			/*alert($(".sd_tabcont > .sdt_cont").eq(ac));
+			$(".sd_tabcont > .sdt_cont").eq(ac).style("display","block");*/
+			if($(".sd_tabcont > .sdt_cont").eq(ac).css("display")=="none"){
+				$(".sd_tabcont > .sdt_cont").css("display","none");
+				$(".sd_tabcont > .sdt_cont").eq(ac).css("display","block");
+			}
+			return false;
+		});
+	});
+
+
+	/***** 비쥬얼영역 *****/
+	//태그
+	var vstagSwiper = new Swiper('.vs_tag',{
+		slidesPerView: 4,
+		spaceBetween: 10,
+	});
+	//태그클릭
+	var vsTagKey = true;//중복클릭방지key
+	$(".vs_tag a").each(function(index){
+		$(this).click(function(){
+			/*if(vsTagKey)
+			{
+				allSwiper.slideTo(index);
+			}
+			return false;*/
+			allSwiper.slideTo(index);
+		});
+	});
+	//왼쪽 3개 뉴스 카운트 세기
+	var hashDiv = $("div[data-name=hashDiv]").length;
+	for(var i=0; i<hashDiv; i++){
+		var chkNum = $("input[name=codNum]").eq(i).val();
+		var aCount = $("a[name="+chkNum+"]").length;
+		if(chkNum == chkNum){
+			for(var j=0; j<aCount; j++){
+				var jj = j+1;
+				$("a[name="+chkNum+"] > .img > .new_tag" ).eq(j).html("0"+jj);
+				//왼쪽 기사 3개 3개 이상  안나타나게
+				if(j >= 3){
+					$("a[name="+chkNum+"]" ).eq(j).hide();
+				}
+			}
+		}
+	}
+	
+	//전체내부롤링설정swiper_2_1
+	var allCnt = $(".vs_tag a").length;
+	var swipers = {};
+	
+	var index = 1;
+	var onSilde = false;
+	var onNext = false;
+	var onPrev = false;
+	
+	
+	for(var i=0; i<allCnt; i++) {
+		//이벤트알림창
+		var swpSec1 = "swiper_"+ (i+1) +"_1";
+		
+		if(i==0){
+			swipers[swpSec1] = new Swiper('.'+swpSec1+" .swiper-container",{		
+				autoplay: 6000,
+				loop:true,
+				speed:1000,
+				loopSliders:3,
+				initialSlide:0,
+				pagination : '.'+swpSec1+' .swiper-pagination',
+				//paginationType : 'fraction',
+				paginationClickable: true,
+				prevButton: '.'+swpSec1+' .swiper-button-prev',
+				nextButton: '.'+swpSec1+' .swiper-button-next',
+				spaceBetween: 10,
+				onInit: function(swiper){
+					$('.'+swpSec1+' .btn_group .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					$('.'+swpSec1+' .btn_group .btn_play').click(function(){
+						swiper.startAutoplay();
+					});
+					
+				}
+				
+			});
+			
+			//보도자료
+			var swpSec3 = "swiper_"+ (i+1) +"_3";
+			swipers[swpSec3] = new Swiper('.'+swpSec3+" .swiper-container",{
+				loop: false,
+				autoplay: 6000,
+				speed:800,
+				//effect : 'fade',
+				pagination : '.'+swpSec3+' .swiper-pagination',
+				paginationClickable: true,
+				onInit: function(swiper){
+					$('.'+swpSec3+' .btn_group .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					$('.'+swpSec3+' .btn_group .btn_play').click(function(){
+						swiper.startAutoplay();
+					});
+				}
+	
+			});
+			//카드뉴스
+			var swpSec4 = "swiper_"+ (i+1) +"_4";
+			swipers[swpSec4] = new Swiper('.'+swpSec4+" .swiper-container",{
+				//autoplay: 6000,
+				//loop:false,
+				//speed:800,
+				pagination : '.'+swpSec4+' .swiper-pagination',
+				paginationType : 'fraction',
+				prevButton: '.'+swpSec4+' .swiper-button-prev',
+				nextButton: '.'+swpSec4+' .swiper-button-next',
+				onInit: function(swiper){
+					$('.'+swpSec4+' .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					
+				},
+				loop: false,
+				autoplay: 6000,
+				speed:800,
+				//effect : 'fade'
+			});
+			//청장동정
+			var swpSec5 = "swiper_"+ (i+1) +"_5";
+			swipers[swpSec5] = new Swiper('.'+swpSec5+" .swiper-container",{
+				autoplay: 6000,
+				loop:false,
+				speed:800,
+				pagination : '.'+swpSec5+' .swiper-pagination',
+				paginationClickable: true,
+				effect : 'fade',
+				onInit: function(swiper){
+					$('.'+swpSec5+' .btn_group .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					$('.'+swpSec5+'.btn_group .btn_play').click(function(){
+						swiper.startAutoplay();
+					});
+				},
+	
+			});
+			//홍보영상
+			var swpSec6 = "swiper_"+ (i+1) +"_6";
+			swipers[swpSec6] = new Swiper('.'+swpSec6+" .swiper-container",{
+				autoplay: 6000,
+				loop:false,
+				speed:800,
+				effect : 'fade',
+				pagination : '.'+swpSec6+' .swiper-pagination',
+				paginationClickable: true,
+				onInit: function(swiper){
+					$('.'+swpSec6+' .btn_group .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					$('.'+swpSec6+' .btn_group .btn_play').click(function(){
+						swiper.startAutoplay();
+					});
+				}
+	
+			});
+			//e-환경뉴스
+			var swpSec7 = "swiper_"+ (i+1) +"_7";
+			swipers[swpSec7] = new Swiper('.'+swpSec7+" .swiper-container",{
+				loop: false,
+				autoplay: 6000,
+				speed:800,
+				effect : 'fade',
+	
+			});
+		}else{
+			swipers[swpSec1] = new Swiper('.'+swpSec1+" .swiper-container",{
+				loop:false,
+				speed:800,
+				pagination : '.'+swpSec1+' .swiper-pagination',
+				paginationType : 'fraction',
+				prevButton: '.'+swpSec1+' .swiper-button-prev',
+				nextButton: '.'+swpSec1+' .swiper-button-next',
+				onInit: function(swiper){
+					$('.'+swpSec1+' .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					$('.'+swpSec1+' .btn_play').click(function(){
+						swiper.startAutoplay();
+					});
+				}
+			});
+			//보도자료
+			var swpSec3 = "swiper_"+ (i+1) +"_3";
+			swipers[swpSec3] = new Swiper('.'+swpSec3+" .swiper-container",{
+				loop: false,
+				speed:800,
+				//effect : 'fade',
+				onInit: function(swiper){
+					$('.'+swpSec3+' .btn_group .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					$('.'+swpSec3+' .btn_group .btn_play').click(function(){
+						swiper.startAutoplay();
+					});
+				}
+	
+			});
+			//카드뉴스
+			var swpSec4 = "swiper_"+ (i+1) +"_4";
+			swipers[swpSec4] = new Swiper('.'+swpSec4+" .swiper-container",{
+				loop:false,
+				speed:800,
+				pagination : '.'+swpSec4+' .swiper-pagination',
+				paginationType : 'fraction',
+				prevButton: '.'+swpSec4+' .swiper-button-prev',
+				nextButton: '.'+swpSec4+' .swiper-button-next',
+				onInit: function(swiper){
+					$('.'+swpSec4+' .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					
+				}
+			});
+			//청장동정
+			var swpSec5 = "swiper_"+ (i+1) +"_5";
+			swipers[swpSec5] = new Swiper('.'+swpSec5+" .swiper-container",{
+				loop:false,
+				speed:800,
+				//effect : 'fade',
+				onInit: function(swiper){
+					$('.'+swpSec5+' .btn_group .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					$('.'+swpSec5+' .btn_group .btn_play').click(function(){
+						swiper.startAutoplay();
+					});
+				}
+	
+			});
+			//홍보영상
+			var swpSec6 = "swiper_"+ (i+1) +"_6";
+			swipers[swpSec6] = new Swiper('.'+swpSec6+" .swiper-container",{
+				loop:false,
+				speed:800,
+				//effect : 'fade',
+				onInit: function(swiper){
+					$('.'+swpSec6+' .btn_group .btn_stop').click(function(){
+						swiper.stopAutoplay();
+					});
+					$('.'+swpSec6+' .btn_group .btn_play').click(function(){
+						swiper.startAutoplay();
+					});	
+				}	
+			});
+			//e-환경뉴스
+			var swpSec7 = "swiper_"+ (i+1) +"_7";
+			swipers[swpSec7] = new Swiper('.'+swpSec7+" .swiper-container",{
+				loop: false,
+				speed:800,
+				//effect : 'fade',
+			});
+		}
+	}
+
+
+
+	//전체wrap
+	var allSwiper = new Swiper('.all_sec',{
+		speed: 500,
+		noSwiping : true,
+		prevButton: '.title_ctrl .swiper-button-prev',
+		nextButton: '.title_ctrl .swiper-button-next',
+		onSlideChangeStart: function(swiper){
+			vstagSwiper.slideTo(swiper.activeIndex-1);
+			$(".vs_tag a").removeClass("active");
+			$(".vs_tag a").eq(swiper.activeIndex).addClass("active");
+
+			resetAllSwiper(swiper.activeIndex+1);//기타영역정지 및 초기화
+			
+			//vsTagKey = false; //중복클릭방지key
+		},
+		onInit: function(swiper){
+			resetAllSwiper(swiper.activeIndex+1);//기타영역정지 및 초기화
+			swiperAnimateCache(swiper);
+			swiperAnimate(swiper);
+		},
+		onSlideChangeEnd: function(swiper){
+			swiperAnimate(swiper);
+			//vsTagKey = true; //중복클릭방지key'
+			
+		},
+	});
+
+	function resetAllSwiper(idx) {
+		for(var i=0; i<1; i++) {
+			swipers['swiper_'+ (i+1) +'_1'].slideTo(1);
+			swipers['swiper_'+ (i+1) +'_1'].stopAutoplay();
+
+			swipers['swiper_'+ (i+1) +'_3'].slideTo(1);
+			swipers['swiper_'+ (i+1) +'_3'].stopAutoplay();
+			swipers['swiper_'+ (i+1) +'_4'].slideTo(1);
+			swipers['swiper_'+ (i+1) +'_4'].stopAutoplay();
+			swipers['swiper_'+ (i+1) +'_5'].slideTo(1);
+			swipers['swiper_'+ (i+1) +'_5'].stopAutoplay();
+			swipers['swiper_'+ (i+1) +'_6'].slideTo(1);
+			swipers['swiper_'+ (i+1) +'_6'].stopAutoplay();
+			swipers['swiper_'+ (i+1) +'_7'].slideTo(1);
+			swipers['swiper_'+ (i+1) +'_7'].stopAutoplay();
+		}
+		swipers['swiper_'+ 1 +'_1'].startAutoplay();
+
+
+		swipers['swiper_'+ 1 +'_3'].startAutoplay();
+
+		swipers['swiper_'+ 1 +'_4'].startAutoplay();
+
+		swipers['swiper_'+ 1 +'_5'].startAutoplay();
+
+		swipers['swiper_'+ 1 +'_6'].startAutoplay();
+
+		swipers['swiper_'+ 1 +'_7'].startAutoplay();
+		//변경후 setTimeout 시간차 취소
+	}
+
+	/***** 비쥬얼영역 끝 *****/
+
+
+	/* 공기질데이터 탭 */
+	$(".sd_tab li a").each(function(index){
+		$(this).click(function(){
+			$(".sd_tab li").removeClass("active");
+			$(this).parent().addClass("active");
+			//
+			return false;
+		});
+	});
+
+	/* 대기질 예보 탭 */
+	$(".p_day_tab li a").each(function(index){
+		$(this).click(function(){ 
+			$(".p_day_tab li").removeClass("active");
+			$(this).parent().addClass("active");
+			$(".p_day_tabcont").removeClass("active");
+			$(".p_day_tabcont").eq(index).addClass("active");
+			return false;
+		});
+	});
+
+	//팝업존
+	var popzoneSwiper = new Swiper(".sec_popzone .swiper-container",{
+		autoplay: 3000,
+		//loop:true,
+		speed:800,
+		pagination : '.sec_popzone .swiper-pagination',
+		paginationType : 'fraction',
+		prevButton: '.sec_popzone .swiper-button-prev',
+		nextButton: '.sec_popzone .swiper-button-next',
+		onInit: function(swiper){
+			$('.sec_popzone .btn_stop').click(function(){
+				swiper.stopAutoplay();
+			});
+		},
+	});
+
+	//뉴스
+	var newsSwps = new Array();
+	newsSwps[0] = new Swiper('.news_swiper01 .swiper-container',{
+		slidesPerView: 4,
+		speed:800,
+		prevButton: '.news_swiper01 .swiper-button-prev',
+		nextButton: '.news_swiper01 .swiper-button-next',
+	});
+	newsSwps[1] = new Swiper('.news_swiper02 .swiper-container',{
+		slidesPerView: 4,
+		speed:800,
+		prevButton: '.news_swiper02 .swiper-button-prev',
+		nextButton: '.news_swiper02 .swiper-button-next',
+	});
+	newsSwps[2] = new Swiper('.news_swiper03 .swiper-container',{
+		slidesPerView: 4,
+		speed:800,
+		prevButton: '.news_swiper03 .swiper-button-prev',
+		nextButton: '.news_swiper03 .swiper-button-next',
+	});
+	newsSwps[3] = new Swiper('.news_swiper04 .swiper-container',{
+		slidesPerView: 4,
+		speed:800,
+		prevButton: '.news_swiper04 .swiper-button-prev',
+		nextButton: '.news_swiper04 .swiper-button-next',
+	});
+	
+	$(".news_tab ul li a").each(function(index){
+		$(this).click(function(){
+			$(".news_tab ul li").removeClass("active");
+			$(this).parent().addClass("active");
+			$(".news_tabcont").removeClass("active");
+			$(".news_tabcont").eq(index).addClass("active");
+			newsSwps[index].update();
+			newsSwps[index].slideTo(0,0);
+			return false;
+		});
+	});
+
+	//미디어
+	var mediaSwps = new Array();
+	media_ctrl = new Swiper(".ctrl .swiper-container",{
+		speed:800,
+		autoplay: 5000,
+	});
+	
+	mediaSwps[0] = new Swiper(".media01 .swiper-container",{
+		slidesPerView: 4,
+		speed:800,
+		prevButton: '.media01 .swiper-button-prev',
+		nextButton: '.media01 .swiper-button-next',
+	});
+	mediaSwps[1] = new Swiper(".media02 .swiper-container",{
+		slidesPerView: 4,
+		speed:800,
+		prevButton: '.media02 .swiper-button-prev',
+		nextButton: '.media02 .swiper-button-next',
+	});
+	mediaSwps[2] = new Swiper(".media03 .swiper-container",{
+		slidesPerView: 4,
+		speed:800,
+		prevButton: '.media03 .swiper-button-prev',
+		nextButton: '.media03 .swiper-button-next',
+	});
+	mediaSwps[3] = new Swiper(".media04 .swiper-container",{
+		slidesPerView: 4,
+		speed:800,
+		prevButton: '.media04 .swiper-button-prev',
+		nextButton: '.media04 .swiper-button-next',
+	});
+	
+	/*
+	// 미디어 탭 autoplay//
+	(function($){
+	    $.extend($.fn, {
+	        tabModule : function(options) {
+	            $.fn.tabModule.defaults = {
+	                selector : 'a',
+	                tabContents : 'media_swp',
+	                speed : 400,
+	                visibleCont : 1,
+	                autoRolling : false,
+	                roofTime : 2000,
+	                animate : false,
+	                autoControl : false
+	            };
+
+	            return this.each(function(){
+	                var that = $(this),
+	                    opts = $.extend({}, $.fn.tabModule.defaults, options || {}),
+	                    auto = true,
+	                    intervalId = null,
+	                    currIdx = 0,
+	                    stop;
+	                that.data('media_ctrl',that.closest('ul'));
+
+	                that.find(opts.selector).on('click focus', function(){
+	                    var target = $(this),
+	                        idx = $(this).parent().index();
+	                    currIdx = idx;
+	                    //showTab(target, idx);                    
+	                    return false;
+	                });
+	                opts.autoRolling ? intervalId = setInterval(rollingTab, opts.roofTime) :
+	                        that.find(opts.selector).eq(opts.visibleCont - 1).trigger('click');
+
+	                function rollingTab() {
+	                    currIdx++;
+	                    if (currIdx == $('.' + opts.tabContents).length) {
+	                        currIdx = 0;
+	                    }
+	                    that.find(opts.selector).eq(currIdx).trigger('click');	                   
+	                }	                
+	                !opts.autoControl ? that.data('media_ctrl').parent().hide() : that.data('media_ctrl').parent().show();
+	            });
+	        },
+	    })
+	    
+	})(jQuery)
+
+	$('.media_ctrl').tabModule({
+	    animate : true,
+	  autoRolling : true,
+	  autoControl : true,
+	});
+	*/
+	$(".media_tab li a").each(function(index){
+		
+		$(this).click(function(){
+			$(".media_tab li").removeClass("active");
+			$(this).parent().addClass("active");
+			$(".media_swp").removeClass("active");
+			$(".media_swp").eq(index).addClass("active");
+			mediaSwps[index].update();
+			mediaSwps[index].slideTo(0,0);
+			return false;
+		});
+	});
+	
+	// 미디어 탭 autoplay//
+	
+	
+	
+	
+	
+
+	//SNS소식
+	$(".sns_news_tab li a").each(function(index){
+		$(this).click(function(){
+			$(".sns_news_tab li").removeClass("active");
+			$(this).parent().addClass("active");
+			$(".sns_news_tabcont").removeClass("active");
+			$(".sns_news_tabcont").eq(index).addClass("active");
+			return false;
+		});
+	});
+
+	//메인 foot 퀵메뉴
+	var mainFootQuick = new Swiper(".main_foot_quick .swiper-container",{
+		slidesPerView: 9,
+		speed:800,
+		prevButton: '.main_foot_quick .swiper-button-prev',
+		nextButton: '.main_foot_quick .swiper-button-next',
+	});
+
+	//foot 배너슬라이드
+	var footSwp = new Swiper(".foot_slide .swiper-container",{
+		autoplay: 3000,
+		slidesPerView: 7,
+		spaceBetween: 20,
+		speed:800,
+		prevButton: '.foot_slide .swiper-button-prev',
+		nextButton: '.foot_slide .swiper-button-next',
+		onInit: function(swiper){
+			$('.foot_slide .btn_stop').click(function(){
+				swiper.stopAutoplay();
+			});
+		},
+	});
+
+	//foot 바로가기
+	$(".foot_go > li > a").each(function(index){
+		$(this).click(function(){
+			$(".foot_go > li").not($(this).parent()).removeClass("active");
+			$(this).parent().toggleClass("active");
+			return false;
+		});
+	});
+	$(document).click(function(e){
+		if($(e.target).parents(".foot_go > li").length < 1)
+		{
+			$(".foot_go > li").removeClass("active");
+		}
+	});
+
+
+	//sub 이벤트/정책
+	var eventSwiper = new Swiper(".event_slide .swiper-container",{
+		autoplay: 3000,
+		slidesPerView: 3,
+		speed:800,
+		prevButton: '.event_slide .swiper-button-prev',
+		nextButton: '.event_slide .swiper-button-next',
+	});
+
+
+});
+
+//상단검색
+function toggleSearch() {
+	$(".gnb_search").toggleClass("open");
+}
+
+//Quick Menu
+function quickToggle() {
+	$(".quick_menu").toggleClass("open");
+ 
+		if( $("#wrap > div.quick_menu > a.btn_toggle").attr("title") == "빨리가기 접기 버튼" )
+			$("#wrap > div.quick_menu > a.btn_toggle").attr({"title":"빨리가기 펼치기 버튼"});
+		else if( $("#wrap > div.quick_menu > a.btn_toggle").attr("title") == "빨리가기 펼치기 버튼" )
+			$("#wrap > div.quick_menu > a.btn_toggle").attr({"title":"빨리가기 접기 버튼"});
+	
+}

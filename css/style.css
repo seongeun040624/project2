@@ -1,0 +1,660 @@
+/* 공통속성 */
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+body, html{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+a{text-decoration: none; color: #333;}
+
+.inner{
+    width: 1280px;
+    height: 100%;
+   /*  background: rgba(0, 0, 0, .2); */
+    margin: 0 auto;
+}
+
+
+
+#wrap{}
+
+#header{
+    width: 100%;
+    height: 205px;
+}
+#header .header_until{
+    width: 100%;
+    height: 45px;
+    background: rgb(245, 245, 245);
+}
+#header .header_until .inner{
+    display: flex;
+    align-items: center;
+}
+#header .header_until .inner p{
+    line-height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #626476;
+}
+#header .header_until .inner p img{
+    margin-right: 5px;
+    vertical-align: middle;
+}
+/* 헤더언틸 끝 */
+
+
+
+#header .header_head{
+    width: 100%;
+    height: 100px;
+}
+#header .header_head .inner .header_head_wrap{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#header .header_head .inner .header_head_wrap .header_logo{
+    background: url(../img/ft_logo.svg) no-repeat left center;
+    width: 285px;
+    height: 97px;
+}
+#header .header_head .inner .header_head_wrap .header_right{
+    position: absolute;
+    top: 0;right: 0;
+    
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_top{
+    padding: 15px 0;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_top>ul{
+    display: flex;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_top>ul>li{
+    padding-right: 20px;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_top>ul>li>a{
+    color: #3f3f3f;
+    font-size: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    font-weight: 600;
+    font-size: 14px;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_top>ul>li:first-child>a:before{
+    content: "";
+    background: url(../img/ico_linkEng.png) no-repeat;
+    position: absolute;
+    left: 0; top: 1.5px;
+    width: 16px;
+    height: 16px;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_top>ul>li:last-child>a:before{
+    content: "";
+    background: url(../img/ico_linkMob.png) no-repeat;
+    position: absolute;
+    left: 0; top: 1.5px;
+    width: 16px;
+    height: 16px;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_top>ul>li>a:after{
+     content: "";
+    background: url(../img/ico_link.png) no-repeat;
+    position: absolute;
+    right: 0; top: 1.5px;
+    width: 16px;
+    height: 16px;
+}
+
+#header .header_head .inner .header_head_wrap .header_right .header_R_bottom{
+    width: 420px;
+    height: 44px;
+    display: flex;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_bottom form{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_bottom form label{
+    display: none;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_bottom form .search{
+    width: 81%;
+    height: 100%;
+    padding: 0 16px;
+    border: 2px solid #555;
+    border-radius: 10px 0 0 10px;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_bottom form .search:focus{
+    border: none;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_bottom form button{
+    position: absolute;
+    right: 0; top: 0;
+    display: flex;
+    width: 20%;
+    height: 100%;
+    background: #555;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    justify-content: space-around;
+    align-items: center;
+   border-radius: 0 10px 10px 0;
+   cursor: pointer;
+}
+#header .header_head .inner .header_head_wrap .header_right .header_R_bottom form button::after{
+    content: "";
+    background: url(../img/search-new-icon.png) no-repeat;
+    width: 20px;
+    height: 20px;
+}
+/* 헤더헤드 끝 */
+
+
+
+#nav{
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#nav>.inner{
+    display: flex;
+    justify-content: space-between;
+}
+#nav>.inner>ul{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+#nav>.inner>ul>li{
+    width: auto ;
+    height: 100%;
+    align-items: center;
+}
+#nav>.inner>ul>li>a{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px 60px 20px 40px;
+    position: relative;
+    transition: .3s;
+}
+#nav>.inner>ul>li>a::after{
+    content: "";
+    background: url(../img/btn_gnb_arrow.png) no-repeat center center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20px; right: 25px;
+    transition: .3s;
+}
+#nav>.inner>ul>li:hover>a{
+    background: #00377529;
+    border-bottom: 3px solid #003675;
+}
+#nav>.inner>ul>li:hover>a::after{
+    content: "";
+    background: url(../img/btn_gnb_arrow.png) no-repeat center center;
+    transform: rotate(180deg);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20px; right: 25px;
+}
+
+.rMenu{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+.texM{margin-right: 10px;}
+/* nav 원댑스 해결 */
+
+
+
+.bgmenu{
+    display: none;
+    width: 100%;
+    height: 300px;
+    background: #fff;
+    position: absolute;
+    top: 205px; left: 0;
+    z-index: 11;
+}
+
+
+.bgmenu>.inner{
+    display: flex;
+    justify-content: space-between;
+}
+.bgmenu>.inner>.inmenu{
+    background: #0037753a;
+    display: block;
+    height: 300px;
+    width: 260px;
+    position: relative;
+    padding-top: 15px;
+}
+.bgmenu>.inner>.inmenu>li{width: 260px;}
+.bgmenu>.inner>.inmenu>li>a{
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    padding: 20px 10px;
+    transition: .3s;
+}
+.bgmenu>.inner>.inmenu>li:hover>a{
+    background: #fff;
+    color: #003675;
+}
+
+
+
+.bgmenu>.inner>.inmenu>li>.depth{display: none; }
+.bgmenu>.inner>.inmenu>li:first-child>.depth{display: block;}
+
+
+.bgmenu>.inner>.inmenu>li>.depth>ul.depth3{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 260px; top: 0;
+    width: 820px;
+    /* height: auto; */
+    padding: 10px;
+    background: #fff;
+}
+
+/* .bgmenu>.inner>.inmenu>li>.depth.active{display: block;} */
+
+.bgmenu>.inner>.inmenu>li>.depth>ul.depth3 li{
+    width: 180px;
+    padding: 5px;
+    margin: 10px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -1px;
+}
+.bgmenu>.inner>.inmenu>li>.depth>ul.depth3>li>a{
+    display: block;
+    color: #333;
+    padding: 5px 0;
+}
+.bgmenu>.inner>.inmenu>li>.depth>ul.depth3>li:hover>a{
+    text-decoration: underline;
+    color: #003675;
+}
+
+.bgmenu>.inner>.inmenu>li>.depth>ul.depth3>li.depth3Tit{
+    font-weight: bold;
+    font-size: 25px;
+    width: 100%;
+    padding: 10px;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+
+.bgmenu>.inner>.centerSec{
+    width: 1020px;
+    display: flex;
+    justify-content: space-between;
+}
+.bgmenu>.inner>.centerSec>.centerTxt{width: 820px;}
+.bgmenu>.inner>.centerSec>.rightBtn{
+    width: 200px; 
+    padding-top: 10px;
+}
+.bgmenu>.inner>.centerSec>.rightBtn .btn{
+    width: 180px;
+    height: 60px;
+    background: #bfd3e9c9;
+    color: #003675;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-radius: 12px;
+    transition: .3s;
+    text-align: left;
+    letter-spacing: -.5px;
+}
+.bgmenu>.inner>.centerSec>.rightBtn .btn:hover{background: #e6e6e6;}
+.bgmenu>.inner>.centerSec>.rightBtn .btn img{
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+
+.bgmenu>.inner>.inmenu>li>.depth>ul.depth3>li.linkImg{
+    justify-content:flex-start;
+}
+.linkImg img{
+    display: block;
+    margin-left: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+/* nav 끝 */
+
+
+.content1{
+    margin-top: 30px;
+}
+
+.content1 .inner .mainSlider{
+    margin-bottom: 30px;
+    position: relative;
+}
+.content1 .inner .mainSlider .sliderImg ul{
+    display: flex;
+    overflow: hidden;
+    border-radius: 25px;
+    position: relative;
+    width: 100%;
+    height: 720px;
+}
+
+.content1 .inner .mainSlider .sliderBtn{
+    position: absolute;
+    top: 350px;
+    z-index: 10;
+    width: 100%;
+    gap: 50px;
+    overflow: hidden;
+}
+.content1 .inner .mainSlider .sliderBtn ul{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content1 .inner .mainSlider .sliderBtn ul li:first-child{
+    border-radius: 0 50% 50% 0;
+    background: rgba(200, 200, 200, .2);
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    transition: .3s;
+}
+.content1 .inner .mainSlider .sliderBtn ul li:last-child{
+    border-radius: 50% 0 0 50%;
+    background: rgba(200, 200, 200, .2);
+    width: 100px;
+    height: 100px;
+    margin-right: -50px;
+    transition: .3s;
+}
+.content1 .inner .mainSlider .sliderBtn ul li a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content1 .inner .mainSlider .sliderBtn ul li:first-child a img{
+    margin-left: 40px;
+}
+.content1 .inner .mainSlider .sliderBtn ul li:last-child a img{
+    margin-right: 40px;
+}
+.content1 .inner .mainSlider .sliderBtn ul li:hover{
+    background: #fff;
+}
+
+
+.content1 .inner .mainSliderBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.content1 .inner .mainSliderBtn>ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.content1 .inner .mainSliderBtn>ul>li{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+.content1 .inner .mainSliderBtn>ul>li>a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.content1 .inner .mainSliderBtn>ul>li>a.hidden{
+    line-height: 0;
+    width: 0;
+    height: 0;
+    text-indent: -999999999px;
+    overflow: hidden;
+    display: block;
+}
+
+.content1 .inner .mainSliderBtn button.mainActBtn{
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, .7);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.content1 .inner .mainSliderBtn>ul>li.main-active{background: #333;}
+.content1 .inner .mainSliderBtn button.mainActBtn img{
+    width: 14px;
+    height: 14px;
+    object-fit: cover;
+}
+/* section1 끝 */
+
+
+
+
+/* section2 */
+.content2{
+    margin-top: 30px;
+}
+.content2 .inner{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+.content2 .inner .introLeft{
+    border: 1px solid #ccc;
+    width: 60%;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.content2 .inner .introLeft .ilVisual{
+    position: relative;
+}
+.content2 .inner .introLeft .ilVisual span{
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    position: absolute;
+    left: 45px; top: 60px;
+}
+
+
+.content2 .inner .introLeft .introList{
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 196px);
+    align-items: center;
+    margin-left: 25px;
+    padding: 10px 0;
+}
+.content2 .inner .introLeft .introList>div{
+    background: #E9F6ED;
+    border-radius: 10px;
+    width: 45%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 25px;
+    transition: .3s;
+    cursor: pointer;
+}
+.content2 .inner .introLeft .introList>div>img{
+    background: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+.content2 .inner .introLeft .introList>div>span{
+    font-weight: bold;
+    margin-right: 20px;
+}
+.content2 .inner .introLeft .introList>div>a{
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: .3s;
+}
+.content2 .inner .introLeft .introList>div>a>button{
+    background: url(../img/arr_right_act.png) center center no-repeat;
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+
+.content2 .inner .introLeft .introList>div:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3)
+}
+.content2 .inner .introLeft .introList>div:hover a{background: #337747;}
+.content2 .inner .introLeft .introList>div:hover button{
+    background: url(../img/arr_right.png) no-repeat center center;
+}
+
+
+
+.content2 .inner .introRight{
+    border: 1px solid #ccc;
+    width: 40%;
+    height: 300px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.content2 .inner .introRight .irtop{display: flex;}
+
+.content2 .inner .introRight .irtop .irText{
+    text-align: right;
+    padding: 20px 10px;
+}
+.content2 .inner .introRight .irtop .irText h2{
+    font-size: 30px;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 10px;
+}
+.content2 .inner .introRight .irtop .irText p{
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+}
+.content2 .inner .introRight .irtop .irText p span{
+    color: #337747;
+    font-size: 24px;
+}
+
+.content2 .inner .introRight .irtop .irText button{
+    border: none;
+    background: #337747;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: 60px;
+    transition: .3s;
+}
+.content2 .inner .introRight .irtop .irText button:hover{
+    background: #225030;
+}
+
+
+.content2 .inner .introRight .irbottom{
+    background-color: #337747;
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    border-radius: 20px;
+}
+.content2 .inner .introRight .irbottom ul{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+.content2 .inner .introRight .irbottom ul li{
+    border: 1px solid #fff;
+    border-radius: 10px;
+    width: 40%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    transition: .3s;
+}
+.content2 .inner .introRight .irbottom ul li:hover{
+    background: rgba(255, 255, 255, .1);
+}
+
+.content2 .inner .introRight .irbottom ul li a{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    position: relative;
+    transition: .3s;
+}
+.content2 .inner .introRight .irbottom ul li:hover a::after{
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url(../img/arr_right.png) center center no-repeat;
+    position: absolute;
+    left: 160px; top: 5px;
+}
+.content2 .inner .introRight .irbottom ul li a img{
+    margin-right: 15px;
+}
+/* section2 끝 */

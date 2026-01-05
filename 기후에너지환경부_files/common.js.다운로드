@@ -1,0 +1,377 @@
+$(function () {
+	function execCookie() {
+		/* 즐겨찾기 */
+		var menuId0 = getCookie("bkmkMenuid0");
+		var menuId1 = getCookie("bkmkMenuid1");
+		var menuId2 = getCookie("bkmkMenuid2");
+		var menuId3 = getCookie("bkmkMenuid3");
+		var menuId4 = getCookie("bkmkMenuid4");
+		var menuId5 = getCookie("bkmkMenuid5");
+
+		var boardMasterId0 = getCookie("boardMasterId0");
+		var boardMasterId1 = getCookie("boardMasterId1");
+		var boardMasterId2 = getCookie("boardMasterId2");
+		var boardMasterId3 = getCookie("boardMasterId3");
+		var boardMasterId4 = getCookie("boardMasterId4");
+		var boardMasterId5 = getCookie("boardMasterId5");
+
+		var contentId0 = getCookie("contentId0");
+		var contentId1 = getCookie("contentId1");
+		var contentId2 = getCookie("contentId2");
+		var contentId3 = getCookie("contentId3");
+		var contentId4 = getCookie("contentId4");
+		var contentId5 = getCookie("contentId5");
+
+		$('#name'+menuId0).click();
+		$('#name'+menuId1).click();
+		$('#name'+menuId2).click();
+		$('#name'+menuId3).click();
+		$('#name'+menuId4).click();
+		$('#name'+menuId5).click();
+
+		var html = '';
+		if(menuId0 != null) {
+			html += '<li class="name' + menuId0 + '">';
+			html += '	<button type="button" class="del_addedFavorite">자주찾는 메뉴 삭제</button>';
+			html += '	<span><em>' + $('#nameParent' + menuId0).val() + '</em></span>';
+			html += '	<a href="/home/web/index.do?menuId='+menuId0+'">';
+			html += '		<div>' +
+				'<p>' + $('label[for=name' + menuId0 + ']').html() + '</p>' +
+				'<input class="chkMenuId" type="hidden" value="'+menuId0+'" />' +
+				'<input class="chkBoardMasterId" type="hidden" value="'+boardMasterId0+'" />' +
+				'<input class="chkContentId" type="hidden" value="'+contentId0+'" />' +
+				'</div>';
+			html += '	</a>';
+			html += '</li>';
+		}
+		if(menuId1 != null) {
+			html += '<li class="name' + menuId1 + '">';
+			html += '	<button type="button" class="del_addedFavorite">자주찾는 메뉴 삭제</button>';
+			html += '	<span><em>' + $('#nameParent' + menuId1).val() + '</em></span>';
+			html += '	<a href="/home/web/index.do?menuId='+menuId1+'">';
+			html += '		<div>' +
+				'<p>' + $('label[for=name' + menuId1 + ']').html() + '</p>' +
+				'<input class="chkMenuId" type="hidden" value="'+menuId1+'" />' +
+				'<input class="chkBoardMasterId" type="hidden" value="'+boardMasterId1+'" />' +
+				'<input class="chkContentId" type="hidden" value="'+contentId1+'" />' +
+				'</div>';
+			html += '	</a>';
+			html += '</li>';
+		}
+		if(menuId2 != null) {
+			html += '<li class="name' + menuId2 + '">';
+			html += '	<button type="button" class="del_addedFavorite">자주찾는 메뉴 삭제</button>';
+			html += '	<span><em>' + $('#nameParent' + menuId2).val() + '</em></span>';
+			html += '	<a href="/home/web/index.do?menuId='+menuId2+'">';
+			html += '		<div>' +
+				'<p>' + $('label[for=name' + menuId2 + ']').html() + '</p>' +
+				'<input class="chkMenuId" type="hidden" value="'+menuId2+'" />' +
+				'<input class="chkBoardMasterId" type="hidden" value="'+boardMasterId2+'" />' +
+				'<input class="chkContentId" type="hidden" value="'+contentId2+'" />' +
+				'</div>';
+			html += '	</a>';
+			html += '</li>';
+		}
+		if(menuId3 != null) {
+			html += '<li class="name' + menuId3 + '">';
+			html += '	<button type="button" class="del_addedFavorite">자주찾는 메뉴 삭제</button>';
+			html += '	<span><em>' + $('#nameParent' + menuId3).val() + '</em></span>';
+			html += '	<a href="/home/web/index.do?menuId='+menuId3+'">';
+			html += '		<div>' +
+				'<p>' + $('label[for=name' + menuId3 + ']').html() + '</p>' +
+				'<input class="chkMenuId" type="hidden" value="'+menuId3+'" />' +
+				'<input class="chkBoardMasterId" type="hidden" value="'+boardMasterId3+'" />' +
+				'<input class="chkContentId" type="hidden" value="'+contentId3+'" />' +
+				'</div>';
+			html += '	</a>';
+			html += '</li>';
+		}
+		if(menuId4 != null) {
+			html += '<li class="name' + menuId4 + '">';
+			html += '	<button type="button" class="del_addedFavorite">자주찾는 메뉴 삭제</button>';
+			html += '	<span><em>' + $('#nameParent' + menuId4).val() + '</em></span>';
+			html += '	<a href="/home/web/index.do?menuId='+menuId4+'">';
+			html += '		<div>' +
+				'<p>' + $('label[for=name' + menuId4 + ']').html() + '</p>' +
+				'<input class="chkMenuId" type="hidden" value="'+menuId4+'" />' +
+				'<input class="chkBoardMasterId" type="hidden" value="'+boardMasterId4+'" />' +
+				'<input class="chkContentId" type="hidden" value="'+contentId4+'" />' +
+				'</div>';
+			html += '	</a>';
+			html += '</li>';
+		}
+		if(menuId5 != null) {
+			html += '<li class="name' + menuId5 + '">';
+			html += '	<button type="button" class="del_addedFavorite">자주찾는 메뉴 삭제</button>';
+			html += '	<span><em>' + $('#nameParent' + menuId5).val() + '</em></span>';
+			html += '	<a href="/home/web/index.do?menuId='+menuId5+'">';
+			html += '		<div>' +
+				'<p>' + $('label[for=name' + menuId5 + ']').html() + '</p>' +
+				'<input class="chkMenuId" type="hidden" value="'+menuId5+'" />' +
+				'<input class="chkBoardMasterId" type="hidden" value="'+boardMasterId5+'" />' +
+				'<input class="chkContentId" type="hidden" value="'+contentId5+'" />' +
+				'</div>';
+			html += '	</a>';
+			html += '</li>';
+		}
+		/* //즐겨찾기 */
+	}
+	//  GNB 포커스 추가
+	$('#gnb > li > a').focus(function(){
+		$('#gnb > li').removeClass('on');
+		$(this).closest('li').addClass('on');
+	});
+	$('.depth_menu > li > a').focus(function(){
+		$('.depth_menu > li').removeClass('on');
+		$(this).closest('li').addClass('on');
+	});
+
+
+	//나의 즐겨찾기 메뉴 열기
+	$(document).on('click','#favorite',function() {
+		$('#myMenu').toggleClass('on');
+		
+		$('#myMenu > .myMenu_wrap > .myMenu_header > button').focus();
+		
+		$('.myMenu_targetList input[type="checkbox"]').prop('checked', false);
+		$('.myMenu_addList').find('li').remove();
+
+		/* 즐겨찾기 - 기본 메뉴 선택 */
+		if(getCookie("bkmkMenuid0") == null){
+			if(getCookie("resetSe") == null) {
+				if (!$('#name10523').is(':checked')) $('#name10523').click();
+			}
+		} else {
+			execCookie();
+		}
+
+		$('.myMenu_targetList > ul > li')[0].click();
+	});
+
+
+	//나의 즐겨찾기 메뉴 닫기
+	$(document).on('click','.myMenu_header',function() {
+		$('#myMenu').removeClass('on');
+		$('#favorite').focus();
+	});
+
+
+	// 나의 즐겨찾기 메뉴 등록 탭
+	$('.myMenu_targetList > ul > li').click(function() {
+		var selCate = $(this).find('a').text();
+		$('.myMenu_targetList > ul > li').attr('title','');
+		$('.myMenu_targetList > ul > li').removeClass('on');
+		$(this).addClass('on').attr('title' , selCate + ' 메뉴 선택됨');
+
+	});
+	$('.myMenu_targetList > ul > li > a').focus(function() {
+		var selCate = $(this).text();
+		$('.myMenu_targetList > ul > li').attr('title','');
+		$('.myMenu_targetList > ul > li').removeClass('on');
+		$(this).closest('li').addClass('on').attr('title' , selCate + ' 메뉴 선택됨')
+	});
+
+
+	// 나의 즐겨찾기 메뉴 등록/삭제(체크박스)
+	$('.myMenu_targetList input[type="checkbox"]').each(function() {
+		$(this).click(function() {
+			var isChecked = $('.myMenu_targetList').find('input[type="checkbox"]:checked').length;
+			var chkId = $(this).attr('id');
+			var chkTxt1 = $(this).closest('ul').prev().text();
+			var chkTxt2 = $(this).next('label').text();
+			var menuId = $(this).val();
+			var boardMasterId = $(this).parent().find('input[name=boardMasterId]').val();
+			var contentId = $(this).parent().find('input[name=contentId]').val();
+
+			if ($(this).prop('checked') == true) {
+				if (isChecked > 6) {
+					alert('자주 찾는 메뉴는 최대 6개 까지 설정이 가능합니다.');
+					$(this).prop('checked', false);
+				} else {
+					$('.myMenu_addList').append(
+						'<li class="'+chkId+'">' +
+						'	<button type="button" class="del_addedFavorite">자주찾는 메뉴 삭제</button>' +
+						'	<span><em>'+chkTxt1+'</em></span>' +
+						'	<a href="/home/web/index.do?menuId='+ menuId +'">' +
+						'		<div>' +
+						'			<p>'+chkTxt2+'</p>' +
+						'			<input class="chkMenuId" type="hidden" value="' + menuId + '"/>' +
+						'			<input class="chkBoardMasterId" type="hidden" value="' + boardMasterId + '"/>' +
+						'			<input class="chkContentId" type="hidden" value="' + contentId + '"/>' +
+						'		</div>' +
+						'	</a>' +
+						'</li>'
+					)
+				}
+			} else {
+				//체크박스 해제로 즐겨찾기 삭제.
+				$('.myMenu_addList').find('li.'+chkId+'').remove();
+			}
+		});
+	});
+
+	// 나의 즐겨찾기 메뉴 삭제(x버튼)
+	$(document).on('click','.myMenu_addList .del_addedFavorite', function() {
+		var delClass = $(this).closest('li').attr('class');
+
+		$('.myMenu_targetList').find('#'+delClass+'').prop("checked", false);
+		$(this).closest('li').remove();
+	});
+
+
+	$('.btn_fav_reset').click(function() {
+		var confirmflag = confirm('즐겨찾기를 초기화 하시겠습니까?');
+
+		if(confirmflag){
+			$('.myMenu_targetList input[type="checkbox"]').prop('checked', false);
+			$('.myMenu_addList').find('li').remove();
+
+			//쿠키 초기화
+			for(var i = 0; i<6; i++) deleteCookie("bkmkMenuid" + i);
+
+			//초기화 쿠키저장
+			setCookie("resetSe", "Y", 36500);
+
+			alert("즐겨찾기가 초기화되었습니다.");
+		}
+	});
+	// 2021.10.29 -- KBH
+
+	var clickSe = false;
+	// 즐겨찾기 저장
+	$(".btn_fav_save").click(function() {
+		//연속실행 방지
+		if(clickSe) {
+			alert('즐겨찾기 저장 중입니다.');
+			return false;
+		}
+
+		var ua = navigator.userAgent;
+		var userDevice = deviceChk(ua);
+		var os = osChk();
+
+		var chkMenuId = $(".chkMenuId");
+		var checkedMenuIds = [];
+		var boardMasterIds = [];
+		var contentIds = [];
+		var userCookie = getCookie("userCookieId");
+		let menuId, boardMasterId, contentId;
+
+		if(confirm("저장하시겠습니까?")) {
+			if(chkMenuId.length < 1) {
+				alert("선택된 메뉴가 없습니다.");
+				return false;
+			}
+
+			clickSe = true;
+
+			//쿠키 초기화
+			for(var i = 0; i<6; i++) deleteCookie("bkmkMenuid" + i);
+
+			for (var i = 0; i < chkMenuId.length ; i++){
+				menuId = $('.myMenu_addList').children().eq(i).find('.chkMenuId').val();
+				boardMasterId = $('.myMenu_addList').children().eq(i).find('.chkBoardMasterId').val();
+				contentId = $('.myMenu_addList').children().eq(i).find('.chkContentId').val();
+
+				checkedMenuIds[i] = menuId;
+				boardMasterIds[i] = boardMasterId;
+				contentIds[i] = contentId;
+
+				//쿠키 저장
+				setCookie("bkmkMenuid"+i, menuId, 30);
+				setCookie("boardMasterId"+i, boardMasterId, 30);
+				setCookie("contentId"+i, contentId, 30);
+			};
+
+			//로그 저장
+			$.ajax({
+				type: 'POST',
+				url: '/home/web/favoriteMenu.do',
+				data: {"checkedMenuIds": checkedMenuIds, "userCookie" : userCookie, "os" : os, "userDevice" : userDevice, "boardMasterId" : boardMasterId, "contentId" : contentId},
+				dataType: 'json',
+				async: false,
+				success: function (data) {
+					if (data.result != false) {
+						alert("저장되었습니다.");
+						clickSe = false;
+					} else {
+						//alert("Null Exception..")
+						clickSe = false;
+					}
+				},
+				error: function (e) {
+					//alert("error Exception..");
+				}
+
+			});
+		}
+	});
+
+	//데스크탑, 모바일 체크
+	function deviceChk(os) {
+		if(os.indexOf('Mobile') != -1) {return "Mobile";} else {return "DeskTop";}
+	}
+
+	//os 확인
+	function osChk() {
+		var os, ua = navigator.userAgent;
+
+		if(ua.match(/Win(dows)?NT 6\.0/)) {
+			os = "Windows Vista";
+		} else if(ua.match(/Win(dows )?(NT 5\.1|XP)/)) {
+			os = "Windows XP";
+		} else {
+			if((ua.indexOf("Windows NT 5.1") != -1) || (ua.indexOf("Windows XP") != -1)) {
+				os = "Windows XP";
+			} else if((ua.indexOf("Windows NT 7.0") != -1) || (ua.indexOf("Windows NT 6.1") != -1)) {
+				os = "Windows 7";
+			} else if((ua.indexOf("Windows NT 8.0") != -1) || (ua.indexOf("Windows NT 6.2") != -1)) {
+				os = "Windows 8";
+			} else if((ua.indexOf("Windows NT 8.1") != -1) || (ua.indexOf("Windows NT 6.3") != -1)) {
+				os = "Windows 8.1";
+			} else if((ua.indexOf("Windows NT 10.0") != -1) || (ua.indexOf("Windows NT 6.4") != -1)) {
+				os = "Windows 10";
+			} else if((ua.indexOf("iPad") != -1) || (ua.indexOf("iPhone") != -1) || (ua.indexOf("iPod") != -1)) {
+				os = "Apple IOS";
+			} else if(ua.indexOf("Android" != -1)) {
+				os = "Android OS";
+			} else if(ua.match(/Win(dows )?NT( 4\.0)?/)) {
+				os = "Windows NT";
+			} else if(ua.match(/Mac|PPC/)) {
+				os = "Mac OS";
+			} else if(ua.match(/Linux/)) {
+				os = "Linux";
+			} else if(ua.match(/(Free|Net|Open)BSD/)) {
+				os = RegExp.$1 + "BSD";
+			} else if(ua.match(/SunOS/)) {
+				os = "Solaris";
+			}
+		}
+
+		if(os.indexOf("Windows") != -1) {
+			if(navigator.userAgent.indexOf("WOW64") > -1 || navigator.userAgent.indexOf("Win64") > -1) {
+				os += " 64bit";
+			} else {
+				os += " 32bit";
+			}
+		}
+
+		return os;
+	}
+
+	function setCookie(name, value, day) {
+		var date = new Date();
+		date.setTime(date.getTime() + day * 60 * 60 * 24 * 1000);
+		document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+	}
+
+	function getCookie(name) {
+		var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+		return value? value[2] : null;
+	}
+
+	function deleteCookie(name) {
+		var date = new Date();
+		document.cookie = name + "= " + "; expires=" + date.toUTCString() + "; path=/";
+	}
+});

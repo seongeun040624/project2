@@ -194,12 +194,7 @@ $(function(){
     }) */
 
 
-    $('.lastTabs>ul>li').mouseover(function(){
-        $(this).css('background', '#6891c049')
-    });
-    $('.lastTabs>ul>li').mouseleave(function(){
-        $(this).css('background', 'none')
-    });
+    
 
 
     $('.lastTabs>ul>li').click(function (e){
@@ -222,6 +217,12 @@ $(function(){
             $(this).find('.lastSection').show();
         }
     });
+    /* $('.lastTabs>ul>li').mouseover(function(){
+        $(this).css('background', '#6891c049')
+    });
+    $('.lastTabs>ul>li').mouseleave(function(){
+        $(this).css('background', 'none')
+    }); */
 
     //탭 바깥 영역 클릭 시 탭 닫힘
     $(document).click(function(){

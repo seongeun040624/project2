@@ -1002,9 +1002,6 @@ a{text-decoration: none; color: #333;}
 .content6 .inner .lastTabs>ul>li:last-child{
     border-right: 1px solid #ddd;
 }
-.content6 .inner .lastTabs>ul>li:hover{
-    background: #6891c049;
-}
 .content6 .inner .lastTabs>ul>li>a{
     display: block;
     padding-left: 10px;

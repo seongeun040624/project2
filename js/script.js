@@ -194,6 +194,14 @@ $(function(){
     }) */
 
 
+    $('.lastTabs>ul>li').mouseover(function(){
+        $(this).css('background', '#6891c049')
+    });
+    $('.lastTabs>ul>li').mouseleave(function(){
+        $(this).css('background', 'none')
+    });
+
+
     $('.lastTabs>ul>li').click(function (e){
         e.preventDefault(); //a 효과 제거
         e.stopPropagation(); //이 클릭 이벤트는 여기서 끝내고, document까지 전달하지 마라
@@ -222,20 +230,6 @@ $(function(){
         $('.lastTabs>ul>li').css('background', 'none');
         $('.lastSection').hide();
     });
-
-
-    //footer
-    /* $('.snsWrap ul li').hover(function(){
-        $(this).find('img').attr('src', './img/ico_sns_youtube_on.png');
-        $(this).find('img').attr('src', './img/ico_sns_instagram_on.png');
-        $(this).find('img').attr('src', './img/ico_sns_facebook_on.png');
-        $(this).find('img').attr('src', './img/ico_sns_x_on.png');
-        $(this).find('img').attr('src', './img/ico_sns_blog_on.png'); */
-        /* $('li.youtub').find('img').attr('src', './img/ico_sns_youtube_on.png');
-        $('li.insta').find('img').attr('src', './img/ico_sns_instagram_on.png');
-        $('li.faceb').find('img').attr('src', './img/ico_sns_facebook_on.png');
-        $('li.twit').find('img').attr('src', './img/ico_sns_x_on.png');
-        $('li.blog').find('img').attr('src', './img/ico_sns_blog_on.png'); */
-    //}, function(){})
+    
 });
 

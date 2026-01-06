@@ -170,7 +170,72 @@ $(function(){
             $(this).find('img').attr('src','./img/slide_pause.png');
             a=true;
         }
-      
     });
+
+
+    //lastTabs 혼자한 부분// 탭이 열리고 닫히는데 다른 탭을 선택해도 이전 탭이 닫히지 않음
+    /* let b = true;
+    $('.lastTabs>ul>li').click(function(e){
+        e.preventDefault();
+        if(b === true){
+            $(this).find('a').addClass('tabActive');
+            $(this).css('background','#555');
+            $(this).find('.lastSection').show();
+
+            if(){}
+            b=false;
+        }else{
+            $(this).find('a').removeClass('tabActive');
+            $(this).css('background','none');
+            $(this).find('.lastSection').hide();
+
+            b=true;
+        }
+    }) */
+
+
+    $('.lastTabs>ul>li').click(function (e){
+        e.preventDefault(); //a 효과 제거
+        e.stopPropagation(); //이 클릭 이벤트는 여기서 끝내고, document까지 전달하지 마라
+
+        //현재 클릭한 탭이 열려 있는지 먼저 저장
+        let isActive = $(this).find('a').hasClass('tabActive');
+        //hasClass : 해당 a에 tabActive 클래스가 있으면 true, 없으면 false 를 반환
+
+        //모든 탭 초기화
+        $('.lastTabs>ul>li a').removeClass('tabActive');
+        $('.lastTabs>ul>li').css('background', 'none');
+        $('.lastSection').hide();
+
+        //이전에 열려 있지 않았던 경우만 다시 열기
+        if (!isActive) { //!결과 반대로 뒤집음 => isActive가 아니면=> a가 활성화되지 않은(false) 상태라면
+            $(this).find('a').addClass('tabActive');
+            $(this).css('background', '#555');
+            $(this).find('.lastSection').show();
+        }
+    });
+
+    //탭 바깥 영역 클릭 시 탭 닫힘
+    $(document).click(function(){
+        // 탭과 관련된 모든 활성 상태 제거
+        $('.lastTabs>ul>li a').removeClass('tabActive');
+        $('.lastTabs>ul>li').css('background', 'none');
+        $('.lastSection').hide();
+    });
+
+
+    //footer
+    /* $('.snsWrap ul li').hover(function(){
+        $(this).find('img').attr('src', './img/ico_sns_youtube_on.png');
+        $(this).find('img').attr('src', './img/ico_sns_instagram_on.png');
+        $(this).find('img').attr('src', './img/ico_sns_facebook_on.png');
+        $(this).find('img').attr('src', './img/ico_sns_x_on.png');
+        $(this).find('img').attr('src', './img/ico_sns_blog_on.png'); */
+        /* $('li.youtub').find('img').attr('src', './img/ico_sns_youtube_on.png');
+        $('li.insta').find('img').attr('src', './img/ico_sns_instagram_on.png');
+        $('li.faceb').find('img').attr('src', './img/ico_sns_facebook_on.png');
+        $('li.twit').find('img').attr('src', './img/ico_sns_x_on.png');
+        $('li.blog').find('img').attr('src', './img/ico_sns_blog_on.png'); */
+    //}, function(){})
 });
 

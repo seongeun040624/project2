@@ -63,6 +63,7 @@ a{text-decoration: none; color: #333;}
     background: url(../img/ft_logo.svg) no-repeat left center;
     width: 285px;
     height: 97px;
+    text-indent: -99999999999px;
 }
 #header .header_head .inner .header_head_wrap .header_right{
     position: absolute;
@@ -538,7 +539,7 @@ a{text-decoration: none; color: #333;}
     font-weight: bold;
     margin-right: 20px;
 }
-.content2 .inner .introLeft .introList>div>a{
+.content2 .inner .introLeft .introList>div>div.a{
     background: #fff;
     width: 40px;
     height: 40px;
@@ -547,19 +548,21 @@ a{text-decoration: none; color: #333;}
     justify-content: center;
     display: flex;
     transition: .3s;
+    cursor: pointer;
 }
-.content2 .inner .introLeft .introList>div>a>button{
+.content2 .inner .introLeft .introList>div>div.a>button{
     background: url(../img/arr_right_act.png) center center no-repeat;
     width: 40px;
     height: 40px;
     border: none;
+    cursor: pointer;
 }
 
 .content2 .inner .introLeft .introList>div:hover{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3)
 }
-.content2 .inner .introLeft .introList>div:hover a{background: #337747;}
-.content2 .inner .introLeft .introList>div:hover button{
+.content2 .inner .introLeft .introList>div:hover .a{background: #337747;}
+.content2 .inner .introLeft .introList>div:hover .a button{
     background: url(../img/arr_right.png) no-repeat center center;
 }
 
@@ -603,6 +606,7 @@ a{text-decoration: none; color: #333;}
     height: 50px;
     margin-top: 60px;
     transition: .3s;
+    cursor: pointer;
 }
 .content2 .inner .introRight .irtop .irText button:hover{
     background: #225030;
@@ -884,26 +888,28 @@ a{text-decoration: none; color: #333;}
     margin-left: -60px;
     color: #333;
 }
-.content4 .inner .quickMenu>div>a{
+.content4 .inner .quickMenu>div>.a{
     display: block;
     background: #fff;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     transition: .3s;
+    cursor: pointer;
 }
-.content4 .inner .quickMenu>div>a>button{
+.content4 .inner .quickMenu>div>.a>button{
     background: url(../img/arr_right_act.png) no-repeat center center;
     width: 40px;
     height: 40px;
     object-fit: cover;
     border: none;
     transition: .3s;
+    cursor: pointer;
 }
-.content4 .inner .quickMenu>div:hover>a{
+.content4 .inner .quickMenu>div:hover>.a{
     background: #337747;
 }
-.content4 .inner .quickMenu>div:hover>a>button{
+.content4 .inner .quickMenu>div:hover>.a>button{
     background: url(../img/arr_right.png) no-repeat center center;
 }
 /* content4 끝 */
